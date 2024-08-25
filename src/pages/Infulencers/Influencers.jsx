@@ -5,10 +5,12 @@ import styles from './Influencers.module.css'
 import Countdown from '../../components/Countdown/Countdown'
 import InfluencerList from '../../components/InfluencerList/InfluencerList'
 import Categories from '../../components/Categories/Categories'
+import SearchInfluencer from '../../components/SearchInfluencer/SearchInfluencer'
 
 const list =  
 [
   {
+    id: '1',
     name: 'Amel Ouferhat',
     imgSrc: '/src/assets/images/hero-image-728w.webp',
     categories : ['Education', 'Tech', 'Science', 'Podcast'],
@@ -19,6 +21,7 @@ const list =
     }
   },
   {
+    id: '2',
     name: 'Chaib Yucef',
     imgSrc: '/src/assets/images/hero-image-728w.webp',
     categories : ['Education','Podcast'],
@@ -29,6 +32,7 @@ const list =
     }
   },
   {
+    id: '3',
     name: 'Sid Ali Elmouhri',
     imgSrc: '/src/assets/images/hero-image-728w.webp',
     categories : ['Education','Podcast', 'Literature'],
@@ -39,6 +43,7 @@ const list =
     }
   },
   {
+    id: '4',
     name: 'Khoubaib Kouas',
     imgSrc: '/src/assets/images/hero-image-728w.webp',
     categories : ['Tourism', 'Travel'],
@@ -68,11 +73,11 @@ export default function Influencers() {
     else setFilteredList(list.filter(influencer => influencer.categories.includes(category)))
   }
 
-
   return (
     <div className={styles.influencers}>
       <h1>VOTES FINISHES IN</h1>
       <Countdown/>
+      <SearchInfluencer list={list}/>
       <Categories onCategoryChange={filterList}/>
       <InfluencerList list={filteredList}/>
     </div>
