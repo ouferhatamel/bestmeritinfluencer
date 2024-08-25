@@ -3,6 +3,9 @@
     display: flex;
     flex-direction: column;
     align-items: space-between;
+    background-image: url(/src/assets/images/hero-image-1920w.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .root main {
     width: 100vw;

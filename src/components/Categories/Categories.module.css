@@ -1,0 +1,13 @@
+.categories{
+    width: 100%;
+    overflow-x: scroll;
+}
+.categories span{
+    margin-right: 16px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.selected{
+    opacity: 1!important;
+    font-weight: 800;
+}

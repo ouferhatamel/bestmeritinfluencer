@@ -1,15 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 // Styles
 import styles from './Influencers.module.css'
 // Components
 import Countdown from '../../components/Countdown/Countdown'
 import InfluencerList from '../../components/InfluencerList/InfluencerList'
+import Categories from '../../components/Categories/Categories'
 
-const list = 
+const list =  
 [
   {
     name: 'Amel Ouferhat',
-    imgSrc: '/vite.svg',
+    imgSrc: '/src/assets/images/hero-image-728w.webp',
+    categories : ['Education', 'Tech', 'Science', 'Podcast'],
     socialMedia : {
       Youtube : 'Youtube',
       Tiktok : 'Tiktok',
@@ -17,8 +19,9 @@ const list =
     }
   },
   {
-    name: 'Youcef Chaib',
-    imgSrc: '/vite.svg',
+    name: 'Chaib Yucef',
+    imgSrc: '/src/assets/images/hero-image-728w.webp',
+    categories : ['Education','Podcast'],
     socialMedia : {
       Youtube : 'Youtube',
       Tiktok : 'Tiktok',
@@ -26,8 +29,9 @@ const list =
     }
   },
   {
-    name: 'Youcef Chaib',
-    imgSrc: '/vite.svg',
+    name: 'Sid Ali Elmouhri',
+    imgSrc: '/src/assets/images/hero-image-728w.webp',
+    categories : ['Education','Podcast', 'Literature'],
     socialMedia : {
       Youtube : 'Youtube',
       Tiktok : 'Tiktok',
@@ -35,8 +39,9 @@ const list =
     }
   },
   {
-    name: 'Youcef Chaib',
-    imgSrc: '/vite.svg',
+    name: 'Khoubaib Kouas',
+    imgSrc: '/src/assets/images/hero-image-728w.webp',
+    categories : ['Tourism', 'Travel'],
     socialMedia : {
       Youtube : 'Youtube',
       Tiktok : 'Tiktok',
@@ -44,35 +49,9 @@ const list =
     }
   },
   {
-    name: 'Amel Ouferhat',
-    imgSrc: '/vite.svg',
-    socialMedia : {
-      Youtube : 'Youtube',
-      Tiktok : 'Tiktok',
-      Instagram : 'Instagram'
-    }
-  },
-  {
-    name: 'Youcef Chaib',
-    imgSrc: '/vite.svg',
-    socialMedia : {
-      Youtube : 'Youtube',
-      Tiktok : 'Tiktok',
-      Instagram : 'Instagram'
-    }
-  },
-  {
-    name: 'Youcef Chaib',
-    imgSrc: '/vite.svg',
-    socialMedia : {
-      Youtube : 'Youtube',
-      Tiktok : 'Tiktok',
-      Instagram : 'Instagram'
-    }
-  },
-  {
-    name: 'Youcef Chaib',
-    imgSrc: '/vite.svg',
+    name: 'Rahou Oussama',
+    imgSrc: '/src/assets/images/hero-image-728w.webp',
+    categories : ['Edication', 'Business'],
     socialMedia : {
       Youtube : 'Youtube',
       Tiktok : 'Tiktok',
@@ -82,14 +61,20 @@ const list =
 ]
 
 export default function Influencers() {
+  const [filteredList, setFilteredList] = useState(list)
+
+  function filterList (category) {
+    if(category === 'All') setFilteredList(list)
+    else setFilteredList(list.filter(influencer => influencer.categories.includes(category)))
+  }
+
+
   return (
     <div className={styles.influencers}>
       <h1>VOTES FINISHES IN</h1>
       <Countdown/>
-      <div className={styles.influencerList}>
-        {/*<Categories/>*/}
-        <InfluencerList list={list}/>
-      </div>
+      <Categories onCategoryChange={filterList}/>
+      <InfluencerList list={filteredList}/>
     </div>
   )
 }

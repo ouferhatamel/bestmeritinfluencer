@@ -5,7 +5,9 @@ import { FaYoutube, FaTiktok, FaInstagram } from 'react-icons/fa';
 import styles from './InfluencerList.module.css'
 
 export default function InfluencerList({list}) {
-  return (
+  if(list.length==0) return <div className={styles.influencerList}>No Influencer in this category</div>
+  else {
+    return (
     <div className={styles.influencerList}>
         {list.map((influencer,index)=>{
             return (
@@ -26,4 +28,6 @@ export default function InfluencerList({list}) {
         })}
     </div>
   )
+  }
+  
 }

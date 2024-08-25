@@ -1,16 +1,11 @@
 .influencers{
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 .influencers h1 {
     font-size: 1.5rem;
     font-weight: 300;
-}
-.influencerList {
-    background-color: brown;
-    width: 60%;
-    display: flex;
 }

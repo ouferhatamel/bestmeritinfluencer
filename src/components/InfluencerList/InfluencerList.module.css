@@ -1,15 +1,23 @@
 .influencerList {
-    background-color: antiquewhite;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    gap: 2rem;
+    padding: 2rem;
 }
 .influencerCard {
-    background-color: aquamarine;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    margin: 1rem;
-    padding: 30px;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.375);
+    border-radius: 16px;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+}
+.influencerCard img {
+    width: 100%;
+    border-radius: 16px;
+    margin-bottom: 2rem;
 }
 .influencerCard h3{
     text-align: left;
@@ -24,4 +32,17 @@
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+@media (max-width: 1024px) {
+    .influencerList {
+        grid-template-columns: 300px 300px;
+    }
+}
+  
+  /* For mobile phones (1 column) */
+  @media (max-width: 480px) {
+    .influencerList {
+        grid-template-columns: 300px;
+    }
 }
