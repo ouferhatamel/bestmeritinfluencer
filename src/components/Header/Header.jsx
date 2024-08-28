@@ -1,10 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from './Header.module.css'
 
 export default function Header() {
   return (
     <div className={styles.header}>
-        <p className={styles.logo}>BEST MERIT<br/>INFLUENCER</p>
+        <Link to='/' className={styles.logo}>
+          <div>BEST MERIT</div>
+          <div>INFLUENCER</div>
+        </Link>
     </div>
   )
 }

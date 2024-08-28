@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { FiSearch } from "react-icons/fi";
 
 // Styles
 import styles from './SearchInfluencer.module.css';
 
-export default function SearchInfluencer({ list }) {
+export default function SearchInfluencer({ list, onResultClick }) {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [isFocused, setIsFocused] = useState(false);
@@ -16,47 +17,52 @@ export default function SearchInfluencer({ list }) {
             setSearchResult([]);
             return;
         }
-
-        const filteredResults = list.filter(influencer =>
-            influencer.name.toLowerCase().startsWith(value.toLowerCase())
-        );
-
+        const filteredResults = list.filter(influencer => {
+            const words = influencer.name.toLowerCase().split(' '); // Split the name into words
+            return words.some(word => word.startsWith(value.toLowerCase())); // Check if any word starts with the input value
+        });
         setSearchResult(filteredResults);
     }
+    function handleResultClick (influencer) {
+        onResultClick(influencer);
+        setSearchResult([]); // Optionally clear the search results
+        setIsFocused(false); // Close the search results
 
+    }
     function handleFocus() {
         setIsFocused(true);
     }
-
     function handleBlur() {
         setIsFocused(false);
     }
-
     return (
         <div className={styles.seachInfluencer}>
-            <input
-                type="text"
-                placeholder="Search Influencer name"
-                onChange={handleInputChange}
-                value={searchValue}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-            />
+            <div className={styles.searchInput}>
+                <input
+                    type="text"
+                    placeholder="Search Influencer name"
+                    onChange={handleInputChange}
+                    value={searchValue}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                />
+                <span><FiSearch size='20px'/></span>
+            </div>
+            
             <div className={styles.searchResults}>
                 {isFocused && searchValue && searchResult.length === 0 && (
-                    <p>No results found</p>
+                    <ul>
+                        <li>No results found</li>
+                    </ul>
                 )}
-                {/* You can render your search results here */}
-
-                <div className={styles.searchResults}>
-        {searchResult.length > 0 && (
-          searchResult.map((influencer, index) => (
-            <p key={index}>{influencer.name}</p>
-          ))
-        )}
-      </div>
+                <ul>
+                    {searchResult.length > 0 && (
+                        searchResult.map(influencer => (
+                            <li key={influencer.id} onClick={()=> handleResultClick(influencer)}>{influencer.name}</li>
+                        ))
+                    )}
+                </ul>
             </div>
         </div>
     );
 }
-//////////////

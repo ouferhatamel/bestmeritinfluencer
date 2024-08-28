@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: 300px 300px 300px;
     gap: 2rem;
-    padding: 2rem;
 }
 .influencerCard {
     padding: 20px;

@@ -54,6 +54,7 @@ const list =
     }
   },
   {
+    id: '5',
     name: 'Rahou Oussama',
     imgSrc: '/src/assets/images/hero-image-728w.webp',
     categories : ['Edication', 'Business'],
@@ -67,19 +68,23 @@ const list =
 
 export default function Influencers() {
   const [filteredList, setFilteredList] = useState(list)
+  const [searchedInfluencer, setSearchedInfluencer] = useState({})
 
   function filterList (category) {
+    setSearchedInfluencer({}); 
     if(category === 'All') setFilteredList(list)
     else setFilteredList(list.filter(influencer => influencer.categories.includes(category)))
+  }
+  function searchInfluencerResult (influencer) {
+    setSearchedInfluencer(influencer)
   }
 
   return (
     <div className={styles.influencers}>
-      <h1>VOTES FINISHES IN</h1>
       <Countdown/>
-      <SearchInfluencer list={list}/>
+      <SearchInfluencer list={list} onResultClick={searchInfluencerResult}/>
       <Categories onCategoryChange={filterList}/>
-      <InfluencerList list={filteredList}/>
+      <InfluencerList list={filteredList} result={searchedInfluencer}/>
     </div>
   )
 }

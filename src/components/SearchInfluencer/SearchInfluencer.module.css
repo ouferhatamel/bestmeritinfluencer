@@ -1,0 +1,42 @@
+.seachInfluencer{
+    position: relative;
+}
+
+.searchInput {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    align-items: center;
+}
+.searchInput input {
+    grid-area: 1 / 1 / 2 / 2; /* Make the input occupy the first grid cell */
+    background-color: transparent;
+    width: 350px;
+    padding: .8rem;
+    border-radius: 25px;
+    border: 1.5px solid #000000;
+    outline: none;
+    z-index: 1; /* Ensure input is beneath the span */
+}
+.searchInput span {
+    grid-area: 1 / 1 / 2 / 2; /* Position span in the same grid cell */
+    justify-self: end; /* Align span to the end of the grid cell (right) */
+    padding-right: 15px; /* Adjust padding if needed */
+    z-index: 1; /* Ensure span is above the input */
+    margin-top: 3px;
+    cursor: pointer;
+}
+.searchResults{
+    width: 100%;
+    position: absolute;
+    background-color: white;
+    height: fit-content;
+    border-radius: 25px;
+    z-index: 1;
+}
+.searchResults ul{
+    list-style: none;
+}
+.searchResults li{
+    cursor: pointer;
+    padding: .5rem;
+}

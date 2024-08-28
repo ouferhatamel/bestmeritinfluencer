@@ -1,7 +1,7 @@
 .header{
-    font-size: 1.1rem;
-    padding: 1rem;
+    font-size: 1.3rem;
+    padding: 2rem 0;
 }
-.logo{
+.logo div {
     line-height: 1.2;
 }

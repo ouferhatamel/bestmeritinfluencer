@@ -6,6 +6,16 @@
     gap: 2rem;
     height: 100%;
 }
+.home h1 {
+    font-size: 2.5rem;
+}
 .cta {
     width: fit-content;
+}
+
+@media (max-width: 480px){
+    .home h1 {
+        font-size: 2rem;
+        padding: 1rem;
+    }
 }

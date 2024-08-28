@@ -1,11 +1,21 @@
 .countdown {
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
-.countdown h2 {
+.countdown h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.time {
+    display: flex;
+    align-items: center;
+}
+
+.time h2 {
     font-size: 2rem;
 }
-.countdown span {
+.time span {
     display: flex;
     flex-direction: column;
     align-items: center;

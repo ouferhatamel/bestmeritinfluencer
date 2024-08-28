@@ -1,6 +1,10 @@
 .categories{
     width: 100%;
     overflow-x: scroll;
+    padding: 0 1rem;
+}
+.categories::-webkit-scrollbar {
+    display: none;
 }
 .categories span{
     margin-right: 16px;
