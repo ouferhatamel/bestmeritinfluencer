@@ -1,0 +1,29 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Make sure it's on top of everything else */
+  }
+.voteModal {
+    width: 400px;
+    padding: 2rem;
+    border-radius: 16px;
+    background-color: white;
+}
+.voteModal img {
+    width: 100%;
+    border-radius: 16px;
+}
+.voteModal h3 {
+    margin-bottom: 1rem;
+}
+.voteModal .buttons {
+    display: flex;
+    justify-content: space-between;
+}
